@@ -8,13 +8,13 @@ for (var i=0; i<=128984; i++) {
 	passphrase = words[i];
 	//decrypt using the passphrase
 	decrypted = CryptoJS.Rabbit.decrypt(encrypted, passphrase);
-	document.write(passphrase + " " + decrypted + "<br>");}
+	document.write(passphrase + " " + decrypted + "<br>");
 	//loop through the dictionary again, see if the decrypted result is a word
 	for (var j=0; j<=128984; j++) {
 		if(decrypted==words[j]) 
 		{
 			//if the decrypted is a word, print a success message
-			document.write("Match found: " + passphrase + " result: " + decrypted)
+			document.write("Match found: " + passphrase + " result: " + decrypted);
 			success = true;
 			var goodpass = passphrase;
 			break;
