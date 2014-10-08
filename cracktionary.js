@@ -8,27 +8,21 @@ pageScroll();
 for (var i=0; i<=128984; i++) {
 	//set the passphrase to the current word
 	passphrase = words[i];
-	//decrypt using the passphrase
-	decrypted = CryptoJS.Rabbit.decrypt(encrypted, passphrase);
-	//convert the decrypted to a string
-	decrypted = decrypted.toString();
-	//write the try onto the page
-	document.write(passphrase + " " + decrypted + "<br>");
-	//use regex to check if the decrypted string contains no numbers
-	var matches = decrypted.match(/\d+/g);
-	if (matches == null) {
-	    alert(passphrase + " : " + decrypted);
-	}
-	//check if the decrypted string contains one or more spaces
-	if(decrypted.indexOf(' ') !== -1)
-	{
-	    alert(passphrase + " : " + decrypted);
+	try {
+		//decrypt using the passphrase and convert the decrypted to a string
+		decrypted = CryptoJS.Rabbit.decrypt(encrypted, passphrase).toString(CryptoJS.enc.Utf8);
+		document.write(“Match found: ” + passphrase + ” result: ” + decrypted + "<br>");
+		success = true;
+		break;
+	} catch(err) {
+		document.write(passphrase + ” probably wasn’t the key” + "<br>");
 	}
 }
 //if no match was found, cry about it
-if (success==false) 
-{
+if (success==false) {
 	document.write("No match found ;-;");
+} else {
+	document.write("")
 }
 //function to handle page scrolling
 function pageScroll() {
