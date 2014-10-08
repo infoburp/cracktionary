@@ -11,18 +11,16 @@ for (var i=0; i<=128984; i++) {
 	try {
 		//decrypt using the passphrase and convert the decrypted to a string
 		decrypted = CryptoJS.Rabbit.decrypt(encrypted, passphrase).toString(CryptoJS.enc.Utf8);
-		document.write(“Match found: ” + passphrase + ” result: ” + decrypted + "<br>");
+		document.write("Matching passphrase found : " + passphrase + " Resultant plaintext : " + decrypted + "<br>");
 		success = true;
 		break;
 	} catch(err) {
-		document.write(passphrase + ” probably wasn’t the key” + "<br>");
+		document.write(passphrase + " probably was not the key.");
 	}
 }
 //if no match was found, cry about it
 if (success==false) {
 	document.write("No match found ;-;");
-} else {
-	document.write("")
 }
 //function to handle page scrolling
 function pageScroll() {
