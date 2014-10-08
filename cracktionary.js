@@ -15,7 +15,7 @@ for (var i=0; i<=128984; i++) {
 		success = true;
 		break;
 	} catch(err) {
-		document.write(passphrase + " probably was not the key.");
+		document.write(passphrase + " probably was not the key." + "<br>");
 	}
 }
 //if no match was found, cry about it
